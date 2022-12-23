@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Random Notes
+#! Path of the threads after hitting our async/await function through our App.js file 
+    # Start(Main Thread): from the top => getAllSongs() function (our async function)
+        # Main thread: Hits the 'await' keyword => Goes back up to where it started to see if any other code needs to be ran
+        # Second thread (Created once 'await' keyword was hit): Begins to execute the line of code and waits for that code/process to finish => After that line is done,
+            # executes the rest of code in the async function until there is no more code to be ran and goes back to 'thread-pool'

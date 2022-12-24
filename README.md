@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Project END RESULT
+    The final result of the project will be a styled table consisting of all songs retrieved from the Django REST API. The application will also provide the functionality to filter the table based on a string match to any of the song’s properties.
+

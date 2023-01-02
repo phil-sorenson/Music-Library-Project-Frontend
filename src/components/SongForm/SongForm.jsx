@@ -3,60 +3,52 @@ import './SongForm.css'
 import { useState } from "react";
 
 
-
-
-
     
 function SongForm ({ onAddSong }) {
-    const [song, setSong] = useState({
-        title: '',
-        artist:'',
-        album:'',
-        genre:'',
-        release_date:''
-    });
-
-    const handleChange = (event)=> {
-        setSong({...song, [event.target.name]:[event.target.value]});
-    };
+    
+    const [title, setTitle] = useState('');
+    const [artist, setArtist] = useState('');
+    const [album, setAlbum] = useState('');
+    const [genre, setGenre] = useState('');
+    const [date, setDate] = useState('');
 
     function handleSubmit(event){
         event.preventDefault();
+        let song = {
+            title: title,
+            artist: artist,
+            album: album,
+            genre: genre,
+            release_date: date,
+        }
         onAddSong(song);
-        setSong({
-            title: '',
-            artist: '',
-            album: '',
-            genre: '',
-            release_date: ''
-        })
     }
     return (  
         <form onSubmit={handleSubmit}>
             <div className='post-song-form'>            
                 <div className='title-box'>
                     <label htmlFor="title">Title:</label>
-                    <input type='text' id='title' defaultValue={song.title} onChange={handleChange}/>
+                    <input type='text' id='title' value={title} onChange={(event)=>{setTitle(event.target.value)} }/>
                 </div>
                 <br />
                 <div className='artist-box'>
                     <label htmlFor="artist">Artist:</label>
-                    <input type='text' id='artist' defaultValue={song.artist} onChange={handleChange}/>
+                    <input type='text' id='artist' value={artist} onChange={(event)=> {setArtist(event.target.value)}}/>
                 </div>
                 <br />
                 <div className='album-box'>
                     <label htmlFor="album">Album:</label>
-                    <input type='text' id='album' defaultValue={song.album} onChange={handleChange}/>
+                    <input type='text' id='album' value={album} onChange={(event)=> {setAlbum(event.target.value)}}/>
                 </div>
                 <br />
                 <div className='genre-box'>
                     <label htmlFor="genre">Genre:</label>
-                    <input type='text' id='genre' defaultValue={song.genre} onChange={handleChange}/>
+                    <input type='text' id='genre' value={genre} onChange={(event)=> {setGenre(event.target.value)}}/>
                 </div>
                 <br />
                 <div className='release-date-box'>
                     <label htmlFor="release_date">Release Date:</label>
-                    <input  type='date' id='release_date' defaultValue={song.release_date} onChange={handleChange}/>
+                    <input  type='date' id='release_date' value={date} onChange={(event)=> {setDate(event.target.value)}}/>
                 </div>
                 <br />
                 <button className='submit-song' type="submit">Add Song</button>

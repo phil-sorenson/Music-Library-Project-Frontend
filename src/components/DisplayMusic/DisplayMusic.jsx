@@ -18,7 +18,8 @@ function DisplayMusic({songs}){
             </tr>
         </thead>
       <tbody>
-        {songs.map((song) => (
+        {songs.map((song) => {
+          return(
                 <tr key={song.id}>
                     <td>{song.title}</td>
                     <td>{song.artist}</td>
@@ -26,12 +27,11 @@ function DisplayMusic({songs}){
                     <td>{song.genre}</td>
                     <td>{song.release_date}</td>
                 </tr>
-              ))}
+              )
+          })}
       </tbody>
     </Table>
   );
 }
-
-
 export default DisplayMusic;
 

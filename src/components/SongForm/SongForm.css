@@ -1,0 +1,28 @@
+.title-box{
+    margin-left: 1em;
+    border-style: none;
+}
+label.title-box{
+    margin-right: 1em;
+}
+.artist-box{
+    margin-left: 1em;
+    border-style: none;
+}
+.album-box{
+    margin-left: 1em;
+    border-style: none;
+}
+.genre-box{
+    margin-left: 1em;
+    border-style: none;
+}
+.release-date-box {
+    margin-left: 1em;
+    border-style: none;
+}
+
+.submit-song {
+    margin: 1em;
+    border-style: none;
+}

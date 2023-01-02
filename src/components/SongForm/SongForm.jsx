@@ -33,32 +33,34 @@ function SongForm ({ onAddSong }) {
     }
     return (  
         <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="title">Title:</label>
-            <input type='text' id='title' defaultValue={song.title} onChange={handleChange}/>
-        </div>
-        <br />
-        <div>
-            <label htmlFor="artist">Artist:</label>
-            <input type='text' id='artist' defaultValue={song.artist} onChange={handleChange}/>
-        </div>
-        <br />
-        <div>
-            <label htmlFor="album">Album:</label>
-            <input type='text' id='album' defaultValue={song.album} onChange={handleChange}/>
-        </div>
-        <br />
-        <div>
-            <label htmlFor="genre">Genre:</label>
-            <input type='text' id='genre' defaultValue={song.genre} onChange={handleChange}/>
-        </div>
-        <br />
-        <div>
-            <label htmlFor="release_date">Release Date:</label>
-            <input type='date' id='release_date' defaultValue={song.release_date} onChange={handleChange}/>
-        </div>
-        <br />
-        <button type="submit">Add Song</button>
+            <div className='post-song-form'>            
+                <div className='title-box'>
+                    <label htmlFor="title">Title:</label>
+                    <input type='text' id='title' defaultValue={song.title} onChange={handleChange}/>
+                </div>
+                <br />
+                <div className='artist-box'>
+                    <label htmlFor="artist">Artist:</label>
+                    <input type='text' id='artist' defaultValue={song.artist} onChange={handleChange}/>
+                </div>
+                <br />
+                <div className='album-box'>
+                    <label htmlFor="album">Album:</label>
+                    <input type='text' id='album' defaultValue={song.album} onChange={handleChange}/>
+                </div>
+                <br />
+                <div className='genre-box'>
+                    <label htmlFor="genre">Genre:</label>
+                    <input type='text' id='genre' defaultValue={song.genre} onChange={handleChange}/>
+                </div>
+                <br />
+                <div className='release-date-box'>
+                    <label htmlFor="release_date">Release Date:</label>
+                    <input  type='date' id='release_date' defaultValue={song.release_date} onChange={handleChange}/>
+                </div>
+                <br />
+                <button className='submit-song' type="submit">Add Song</button>
+            </div>
         </form>
     );
 

@@ -15,7 +15,7 @@ Total Weighted Project Points: /50
 
 (10 points) As a music enthusiast, I want to be able to filter the table of music by album, artist, genre, release date, and title. 
 
-(10 points) As a music enthusiast, I want to be able to add a song to my database by using Axios to make a POST request to the Django REST API
+✅(10 points) As a music enthusiast, I want to be able to add a song to my database by using Axios to make a POST request to the Django REST API
  
 Bonus
 (10 points) As a music enthusiast, I want to be able to update the song data in my table using a modal popup window that initiates a PUT request to the Django REST API

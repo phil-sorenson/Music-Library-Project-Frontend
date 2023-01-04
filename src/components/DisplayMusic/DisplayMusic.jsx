@@ -2,9 +2,11 @@
 //ToDo • We have to pass it down to this file/'child component'
 //ToDO • Create an HTML table & map over the songs passed down through props to generate the table data rows
 //* DisplayMusic = DisplayEntries.jsx (weight-tracker)
-import Table from 'react-bootstrap/Table';
 
-function DisplayMusic({songs}){
+import Table from 'react-bootstrap/Table';
+import React from 'react';
+
+function DisplayMusic({ filteredSongs } ){
 
   return (
     <Table striped bordered hover size="sm">  
@@ -18,7 +20,7 @@ function DisplayMusic({songs}){
             </tr>
         </thead>
       <tbody>
-        {songs.map((song) => {
+        {filteredSongs.map((song) => {
           return(
                 <tr key={song.id}>
                     <td>{song.title}</td>

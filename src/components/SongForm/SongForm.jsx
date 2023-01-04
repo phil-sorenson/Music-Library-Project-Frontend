@@ -1,7 +1,7 @@
 //* Give user 5 different boxes to type in what they'd like and then a 'add song' button
 import './SongForm.css'
 import { useState } from "react";
-
+import React from 'react';
 
     
 function SongForm ({ onAddSong }) {

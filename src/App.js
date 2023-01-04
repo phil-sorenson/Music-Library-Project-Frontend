@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DisplayMusic from './components/DisplayMusic/DisplayMusic';
-
 import './App.css';
 import SongForm from './components/SongForm/SongForm';
+import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 
   const [songs, setSongs] = useState([]);
-  // const [filteredSongs, setFilteredSongs] = useState([]);
-  // const [filter, setFilter] = useState('');
+  const [filteredSongs, setFilteredSongs] = useState([]);
+  const [searchInput, setSearchInput] = useState('')
+  
 
   useEffect(()=> {
     getAllSongs();
@@ -19,21 +20,32 @@ function App() {
     const response = await axios.get('http://127.0.0.1:8000/music/');
     setSongs(response.data)
     console.log(response.data)
-    // setFilteredSongs(response.data)
+    setFilteredSongs(response.data)
+    
   }
-
-  // const getAllSongs= async () => {
-  //   const response = await axios.get('http://127.0.0.1:8000/music/');
-  //   setSongs(response.data)
-  //   setFilteredSongs(response.data)
-  // };
   
   async function handleAddSong(song){
-    const response= await axios.post('http://127.0.0.1:8000/music/', song)
-    setSongs([...songs, response.data]);
-    // setFilteredSongs([...filteredSongs, response.data]);
+    const response = await axios.post('http://127.0.0.1:8000/music/', song)
+    setSongs(response.data);
+    setFilteredSongs(response.data);
   };
   
+
+  function searchItems(searchValue) {
+      setSearchInput(searchValue)
+      if (searchInput !== ''){
+        const filteredData = songs.filter((song)=>{
+          return Object.values(song).join('').toLowerCase().includes(searchInput.toLowerCase())
+        })
+        setFilteredSongs(filteredData)
+      }
+      else {
+        setFilteredSongs(songs)
+      }}
+
+ 
+      
+  // }
   
   // const removeSong = async (id) => {
   //   await axios.delete('http://127.0.0.1:8000/music/<pk>');
@@ -45,15 +57,18 @@ function App() {
   return (
   
       <div className='App'>
-        <h1>Music Library</h1>
+        <h2>Music Library</h2>
           <div>
             <button className='get-all-songs' style={{'margin': '1em'}} onClick={() => getAllSongs()}>Get All Songs</button>
           </div>
         <div>
-          <DisplayMusic songs={songs}/>
+          <DisplayMusic filteredSongs={filteredSongs} />
         </div>
         <div>
           <SongForm onAddSong={handleAddSong}/>
+        </div>
+        <div>
+          <SearchBar searchItems={searchItems} />
         </div>
       </div>
     

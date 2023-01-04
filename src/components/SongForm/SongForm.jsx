@@ -51,7 +51,7 @@ function SongForm ({ onAddSong }) {
                     <input  type='date' id='release_date' value={date} onChange={(event)=> {setDate(event.target.value)}}/>
                 </div>
                 <br />
-                <button className='submit-song' type="submit">Add Song</button>
+                {/* <button className='submit-song' type="submit">Add Song</button> */}
             </div>
         </form>
     );

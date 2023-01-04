@@ -27,17 +27,17 @@ function App() {
   async function handleAddSong(song){
     const response = await axios.post('http://127.0.0.1:8000/music/', song)
     setSongs(response.data);
-    setFilteredSongs(response.data);
+    // setFilteredSongs(response.data);
   };
   
 
   function searchItems(searchValue) {
       setSearchInput(searchValue)
       if (searchInput !== ''){
-        const filteredData = songs.filter((song)=>{
+        const filteredSongs = songs.filter((song)=>{
           return Object.values(song).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
-        setFilteredSongs(filteredData)
+        setFilteredSongs(filteredSongs)
       }
       else {
         setFilteredSongs(songs)

@@ -13,8 +13,8 @@ function SearchBar({ searchItems }){
        <form>
             <div>
                 <label>Filter:</label>
-                <input type='text' placeholder='Filter...' id='filter'  onInput={(event)=>{searchItems(event.target.value)}}/>
-                <button type="submit">Submit</button>
+                <input type='text' placeholder='Filter or Add Song' id='filter'  onInput={(event)=>{searchItems(event.target.value)}}/>
+                <button type="submit">Add Song</button>
             </div>
        </form> 
     )
